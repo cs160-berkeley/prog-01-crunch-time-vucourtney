@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="exercise_options">
+        <item>Push Ups</item>
+        <item>Sit Ups</item>
+        <item>Jumping Jacks</item>
+        <item>Jogging</item>
+    </string-array>
+</resources>
