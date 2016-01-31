@@ -2,9 +2,18 @@
 <resources>
     <string-array
         name="exercise_options">
+        <item>Select Exercise</item>
         <item>Push Ups</item>
         <item>Sit Ups</item>
+        <item>Squats</item>
+        <item>Leg Lift</item>
+        <item>Planks</item>
         <item>Jumping Jacks</item>
+        <item>Pull Ups</item>
+        <item>Cycling</item>
+        <item>Walking</item>
         <item>Jogging</item>
+        <item>Swimming</item>
+        <item>Stair Climbing</item>
     </string-array>
 </resources>

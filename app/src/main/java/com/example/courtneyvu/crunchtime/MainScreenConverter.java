@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainScreenConverter extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -26,15 +27,6 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_main_screen_converter);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
 
         Spinner spinner1 = (Spinner) findViewById(R.id.exercises_spinner1);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -72,26 +64,30 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
         }
         Integer converted_cals_val = 0;
 
-        if (units.equals("Reps")) {
-            if (exerciseFrom.equals("Push Ups")) {
-                converted_cals_val = (val * 100) / 350;
-            } else if (exerciseFrom.equals("Sit Ups")) {
-                converted_cals_val = (val * 100) / 200;
-            } else if (exerciseFrom.equals("Jumping Jacks")) {
-
-            } else if (exerciseFrom.equals("Jogging")) {
-
-            }
-        } else if (units.equals("Mins")) {
-            if (exerciseFrom.equals("Push Ups")) {
-
-            } else if (exerciseFrom.equals("Sit Ups")) {
-
-            } else if (exerciseFrom.equals("Jumping Jacks")) {
-                converted_cals_val = val * 10;
-            } else if (exerciseFrom.equals("Jogging")) {
-                converted_cals_val = val * 100 / 12;
-            }
+        if (exerciseFrom.equals("Push Ups")) {
+            converted_cals_val = (val * 100) / 350;
+        } else if (exerciseFrom.equals("Sit Ups")) {
+            converted_cals_val = (val * 100) / 200;
+        } else if (exerciseFrom.equals("Squats")) {
+            converted_cals_val = (val * 100) / 225;
+        } else if (exerciseFrom.equals("Leg Lift")) {
+            converted_cals_val = (val * 100) / 25;
+        } else if (exerciseFrom.equals("Plank")) {
+            converted_cals_val = (val * 100) / 25;
+        } else if (exerciseFrom.equals("Jumping Jacks")) {
+            converted_cals_val = (val * 100) / 10;
+        } else if (exerciseFrom.equals("Pull Ups")) {
+            converted_cals_val = (val * 100) / 100;
+        } else if (exerciseFrom.equals("Cycling")) {
+            converted_cals_val = (val * 100) / 12;
+        } else if (exerciseFrom.equals("Walking")) {
+            converted_cals_val = (val * 100) / 20;
+        } else if (exerciseFrom.equals("Jogging")) {
+            converted_cals_val = (val * 100) / 12;
+        } else if (exerciseFrom.equals("Swimming")) {
+            converted_cals_val = (val * 100) / 13;
+        } else if (exerciseFrom.equals("Stair Climbing")) {
+            converted_cals_val = (val * 100) / 15;
         }
 
         cals_output.setText(converted_cals_val.toString());
@@ -99,49 +95,117 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
         Integer converted_ex_val = 0;
 
         if (exerciseTo.equals("Push Ups")) {
-            converted_ex_val = (converted_cals_val / 100) * 350;
+            converted_ex_val = (converted_cals_val * 350) / 100;
         } else if (exerciseTo.equals("Sit Ups")) {
-            converted_ex_val = (converted_cals_val / 100) * 200;
+            converted_ex_val = (converted_cals_val * 200) / 100;
+        } else if (exerciseTo.equals("Squats")) {
+            converted_ex_val = (converted_cals_val * 225) / 100;
+        } else if (exerciseTo.equals("Leg Lift")) {
+            converted_ex_val = (converted_cals_val * 25) / 100;
+        } else if (exerciseTo.equals("Plank")) {
+            converted_ex_val = (converted_cals_val * 25) / 100;
         } else if (exerciseTo.equals("Jumping Jacks")) {
-            converted_ex_val = converted_cals_val / 10;
+            converted_ex_val = (converted_cals_val * 10) / 100;
+        } else if (exerciseTo.equals("Pull Ups")) {
+            converted_ex_val = (converted_cals_val * 100) / 100;
+        } else if (exerciseTo.equals("Cycling")) {
+            converted_ex_val = (converted_cals_val * 12) / 100;
+        } else if (exerciseTo.equals("Walking")) {
+            converted_ex_val = (converted_cals_val * 20) / 100;
         } else if (exerciseTo.equals("Jogging")) {
-            converted_ex_val = (converted_cals_val / 100) * 12;
+            converted_ex_val = (converted_cals_val * 12) / 100;
+        } else if (exerciseTo.equals("Swimming")) {
+            converted_ex_val = (converted_cals_val * 13) / 100;
+        } else if (exerciseTo.equals("Stair Climbing")) {
+            converted_ex_val = (converted_cals_val * 15) / 100;
         }
 
         conversion_output.setText(converted_ex_val.toString());
-    }
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_reps:
-                if (checked)
-                    units = "Reps";
-                    break;
-            case R.id.radio_mins:
-                if (checked)
-                    units = "Mins";
-                    break;
-        }
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         // An item was selected. You can retrieve the selected item using
         // parent.getItemAtPosition(pos)
+        TextView input_units_field = (TextView)findViewById(R.id.input_units);
+        TextView converted_units_field = (TextView)findViewById(R.id.converted_units);
+
+        EditText num_input = (EditText)findViewById(R.id.enter_reps_mins);
+        EditText cals_output = (EditText)findViewById(R.id.calories);
+        EditText conversion_output = (EditText)findViewById(R.id.exercise_conversion);
+
+        String selected = parent.getItemAtPosition(pos).toString();
+
         switch(parent.getId()){
             case R.id.exercises_spinner1 :
                 //Your Action Here.
-                String selectedFrom = parent.getItemAtPosition(pos).toString();
+                String selectedFrom = selected;
                 exerciseFrom = selectedFrom;
+                num_input.setText("");
+                cals_output.setText("");
+                conversion_output.setText("");
+
+                if (selected.equals("Select Option")) {
+                    input_units_field.setText("");
+                } else if (selected.equals("Push Ups")) {
+                    input_units_field.setText("Reps");
+                } else if (selected.equals("Sit Ups")) {
+                    input_units_field.setText("Reps");
+                } else if (selected.equals("Squats")) {
+                    input_units_field.setText("Reps");
+                } else if (selected.equals("Leg Lift")) {
+                    input_units_field.setText("Minutes");
+                } else if (selected.equals("Plank")) {
+                    input_units_field.setText("Minutes");
+                } else if (selected.equals("Jumping Jacks")) {
+                    input_units_field.setText("Minutes");
+                } else if (selected.equals("Pull Ups")) {
+                    input_units_field.setText("Reps");
+                } else if (selected.equals("Cycling")) {
+                    input_units_field.setText("Minutes");
+                } else if (selected.equals("Walking")) {
+                    input_units_field.setText("Minutes");
+                } else if (selected.equals("Jogging")) {
+                    input_units_field.setText("Minutes");
+                } else if (selected.equals("Swimming")) {
+                    input_units_field.setText("Minutes");
+                } else if (selected.equals("Stair Climbing")) {
+                    input_units_field.setText("Minutes");
+                }
                 break;
             case R.id.exercises_spinner2 :
                 //Your Another Action Here.
-                String selectedTo = parent.getItemAtPosition(pos).toString();
+                String selectedTo = selected;
                 exerciseTo = selectedTo;
+                conversion_output.setText("");
+
+                if (selected.equals("Select Option")) {
+                    converted_units_field.setText("");
+                } else if (selected.equals("Push Ups")) {
+                    converted_units_field.setText("Reps");
+                } else if (selected.equals("Sit Ups")) {
+                    converted_units_field.setText("Reps");
+                } else if (selected.equals("Squats")) {
+                    converted_units_field.setText("Reps");
+                } else if (selected.equals("Leg Lift")) {
+                    converted_units_field.setText("Minutes");
+                } else if (selected.equals("Plank")) {
+                    converted_units_field.setText("Minutes");
+                } else if (selected.equals("Jumping Jacks")) {
+                    converted_units_field.setText("Minutes");
+                } else if (selected.equals("Pull Ups")) {
+                    converted_units_field.setText("Reps");
+                } else if (selected.equals("Cycling")) {
+                    converted_units_field.setText("Minutes");
+                } else if (selected.equals("Walking")) {
+                    converted_units_field.setText("Minutes");
+                } else if (selected.equals("Jogging")) {
+                    converted_units_field.setText("Minutes");
+                } else if (selected.equals("Swimming")) {
+                    converted_units_field.setText("Minutes");
+                } else if (selected.equals("Stair Climbing")) {
+                    converted_units_field.setText("Minutes");
+                }
                 break;
         }
     }

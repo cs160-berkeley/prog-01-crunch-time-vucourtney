@@ -15,45 +15,43 @@
     <TextView
         android:id="@+id/select_instr1"
         android:text="@string/instruction1"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp" />
 
-    <Spinner
-        android:id="@+id/exercises_spinner1"
-        android:layout_marginTop="10dp"
-        android:layout_width="fill_parent"
+    <ScrollView
+        android:id="@+id/spinner1_scroll"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/select_instr1"/>
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/select_instr1">
+        <Spinner
+            android:id="@+id/exercises_spinner1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/entry"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/exercises_spinner1">
+        android:layout_below="@+id/spinner1_scroll"
+        android:layout_centerHorizontal="true">
+
         <EditText android:id="@+id/enter_reps_mins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
             android:hint="@string/enter_here"
             android:inputType="number"/>
 
-        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/units"
+        <TextView
+            android:id="@+id/input_units"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <RadioButton android:id="@+id/radio_reps"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reps"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/radio_mins"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mins"
-                android:onClick="onRadioButtonClicked"/>
-        </RadioGroup>
+            android:text="@string/input_units"
+            android:textSize="@dimen/text_size"/>
     </LinearLayout>
 
     <Button
@@ -64,43 +62,87 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:text="@string/convert"
-        android:onClick="convert" />
+        android:onClick="convert"
+        android:background="@color/gold"/>
 
-    <EditText android:id="@+id/calories"
+    <LinearLayout
+        android:id="@+id/cal_output"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:hint="@string/calories_burned"
-        android:inputType="number"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/trigger"
-        android:focusable="false"/>
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/out_msg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@string/msg1"
+            android:textSize="@dimen/text_size"/>
+
+        <EditText android:id="@+id/calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/calories_burned"
+            android:inputType="number"
+            android:focusable="false"/>
+
+        <TextView
+            android:id="@+id/out_msg2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_units"
+            android:textSize="@dimen/text_size"/>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/select_instr2"
         android:text="@string/instruction2"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/calories" />
+        android:layout_below="@+id/cal_output" />
 
-    <Spinner
-        android:id="@+id/exercises_spinner2"
-        android:layout_marginTop="10dp"
-        android:layout_width="fill_parent"
+    <ScrollView
+        android:id="@+id/spinner2_scroll"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/select_instr2"/>
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/select_instr2">
+        <Spinner
+            android:id="@+id/exercises_spinner2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
 
-    <EditText android:id="@+id/exercise_conversion"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="@string/exercise_converted"
-        android:inputType="number"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/exercises_spinner2"
-        android:focusable="false"/>
+        android:layout_below="@+id/spinner2_scroll"
+        android:layout_marginTop="20dp">
+
+        <EditText android:id="@+id/exercise_conversion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/exercise_converted"
+            android:inputType="number"
+            android:focusable="false"/>
+
+        <TextView
+            android:id="@+id/converted_units"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input_units"
+            android:textSize="@dimen/text_size"/>
+    </LinearLayout>
+
 
 </RelativeLayout>
 
