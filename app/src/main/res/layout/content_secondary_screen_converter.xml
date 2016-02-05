@@ -8,114 +8,71 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/tan"
+    android:background="@color/sky_blue"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.courtneyvu.crunchtime.MainScreenConverter"
-    tools:showIn="@layout/activity_main_screen_converter">
+    tools:context="com.example.courtneyvu.crunchtime.SecondaryScreenConverter"
+    tools:showIn="@layout/activity_secondary_screen_converter">
 
     <TextView
-        android:id="@+id/select_instr1"
-        android:text="@string/instruction1"
-        android:textSize="@dimen/text_size"
+        android:id="@+id/instructions_secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
-
-    <ScrollView
-        android:id="@+id/spinner1_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/select_instr1">
-        <Spinner
-            android:id="@+id/exercises_spinner1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+        android:layout_marginTop="20dp"
+        android:text="@string/how_many_cals"
+        android:textSize="@dimen/text_size_secondary"/>
 
     <LinearLayout
-        android:id="@+id/entry"
+        android:id="@+id/entry_secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinner1_scroll"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/instructions_secondary"
         android:layout_centerHorizontal="true">
 
-        <EditText android:id="@+id/enter_reps_mins"
+        <EditText
+            android:id="@+id/cals_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:hint="@string/enter_here"
+            android:layout_marginEnd="15dp"
+            android:hint="Enter # of cals"
             android:inputType="number"/>
 
         <TextView
-            android:id="@+id/input_units"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="@dimen/text_size"/>
+            android:textSize="@dimen/text_size_secondary"
+            android:text="@string/cal_units"/>
+
     </LinearLayout>
 
     <Button
         android:id="@+id/trigger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/entry"
+        android:layout_below="@+id/entry_secondary"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         android:text="@string/convert"
         android:onClick="convert"
-        android:background="@color/bright_blue"/>
-
-    <LinearLayout
-        android:id="@+id/cal_output"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/trigger"
-        android:layout_marginTop="15dp">
-
-        <TextView
-            android:id="@+id/out_msg1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="@string/msg1"
-            android:textSize="@dimen/text_size"/>
-
-        <EditText android:id="@+id/calories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:hint="@string/calories_burned"
-            android:inputType="number"
-            android:focusable="false"/>
-
-        <TextView
-            android:id="@+id/out_msg2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/cal_units"
-            android:textSize="@dimen/text_size"/>
-    </LinearLayout>
-
+        android:background="@color/gold"/>
 
     <TextView
         android:id="@+id/select_instr2"
         android:text="@string/instruction2"
-        android:textSize="@dimen/text_size"
+        android:textSize="@dimen/text_size_secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/cal_output" />
+        android:layout_below="@+id/trigger" />
 
     <ScrollView
         android:id="@+id/spinner2_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:layout_below="@+id/select_instr2">
         <Spinner
-            android:id="@+id/exercises_spinner2"
+            android:id="@+id/exercises_spinner1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
     </ScrollView>
@@ -141,9 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textSize="@dimen/text_size"/>
+            android:textSize="@dimen/text_size_secondary"/>
     </LinearLayout>
 
-
 </RelativeLayout>
-

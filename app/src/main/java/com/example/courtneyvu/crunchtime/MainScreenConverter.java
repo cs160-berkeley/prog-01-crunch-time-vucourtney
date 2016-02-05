@@ -1,8 +1,7 @@
 package com.example.courtneyvu.crunchtime;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,6 +25,8 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_main_screen_converter);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
 
         Spinner spinner1 = (Spinner) findViewById(R.id.exercises_spinner1);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -72,7 +72,7 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
             converted_cals_val = (val * 100) / 225;
         } else if (exerciseFrom.equals("Leg Lift")) {
             converted_cals_val = (val * 100) / 25;
-        } else if (exerciseFrom.equals("Plank")) {
+        } else if (exerciseFrom.equals("Planks")) {
             converted_cals_val = (val * 100) / 25;
         } else if (exerciseFrom.equals("Jumping Jacks")) {
             converted_cals_val = (val * 100) / 10;
@@ -102,7 +102,7 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
             converted_ex_val = (converted_cals_val * 225) / 100;
         } else if (exerciseTo.equals("Leg Lift")) {
             converted_ex_val = (converted_cals_val * 25) / 100;
-        } else if (exerciseTo.equals("Plank")) {
+        } else if (exerciseTo.equals("Planks")) {
             converted_ex_val = (converted_cals_val * 25) / 100;
         } else if (exerciseTo.equals("Jumping Jacks")) {
             converted_ex_val = (converted_cals_val * 10) / 100;
@@ -155,7 +155,7 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
                     input_units_field.setText("Reps");
                 } else if (selected.equals("Leg Lift")) {
                     input_units_field.setText("Minutes");
-                } else if (selected.equals("Plank")) {
+                } else if (selected.equals("Planks")) {
                     input_units_field.setText("Minutes");
                 } else if (selected.equals("Jumping Jacks")) {
                     input_units_field.setText("Minutes");
@@ -189,7 +189,7 @@ public class MainScreenConverter extends AppCompatActivity implements AdapterVie
                     converted_units_field.setText("Reps");
                 } else if (selected.equals("Leg Lift")) {
                     converted_units_field.setText("Minutes");
-                } else if (selected.equals("Plank")) {
+                } else if (selected.equals("Planks")) {
                     converted_units_field.setText("Minutes");
                 } else if (selected.equals("Jumping Jacks")) {
                     converted_units_field.setText("Minutes");
