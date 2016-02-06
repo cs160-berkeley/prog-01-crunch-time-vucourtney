@@ -46,31 +46,20 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/trigger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/entry_secondary"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:text="@string/convert"
-        android:onClick="convert"
-        android:background="@color/gold"/>
-
     <TextView
         android:id="@+id/select_instr2"
         android:text="@string/instruction2"
         android:textSize="@dimen/text_size_secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/trigger" />
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/entry_secondary" />
 
     <ScrollView
         android:id="@+id/spinner2_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/select_instr2">
         <Spinner
             android:id="@+id/exercises_spinner1"
@@ -78,13 +67,23 @@
             android:layout_height="wrap_content" />
     </ScrollView>
 
+    <Button
+        android:id="@+id/trigger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner2_scroll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/convert"
+        android:onClick="convert"
+        android:background="@color/gold"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/spinner2_scroll"
-        android:layout_marginTop="20dp">
+        android:layout_below="@+id/trigger"
+        android:layout_marginTop="25dp">
 
         <EditText android:id="@+id/exercise_conversion"
             android:layout_width="wrap_content"
